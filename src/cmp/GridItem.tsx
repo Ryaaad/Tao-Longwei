@@ -1,31 +1,44 @@
-import { useEffect } from "react"
+import { motion } from "framer-motion"
 import data from "../data/data"
+import { useState } from "react"
 
 interface props{
-    Nbr:number,
-    letNbr: React.Dispatch<React.SetStateAction<number>>
+    id:number,
+    y:number
 }
-
-const GridItem:React.FC<props>=(props)=>{
-  useEffect(()=>{props.letNbr(prev=>prev++)},[]) ; 
-function pad(number:number, length:number):string {
-   
-    var str = '' + number;
-    while (str.length < length) {
-        str = '0' + str;
-    }
-   
-    return str;
-
-}
-
+const Griditem:React.FC<props>=(props)=>{
+    function pad(number:number, length:number):string {
+        var str = '' + number;
+        while (str.length < length) {  str = '0' + str; }
+       
+        return str; }
+        const [hover,sethover]=useState(false) 
 return(
-    <div className="grid justify-start max-h-[238px] ">
-    <div className="tracking-[.1vw]" >{pad(props.Nbr,3)}</div>
-    <img src={data[props.Nbr].img}  className='w-[325px] h-[183px] ' />
-    <div className="tracking-[.4vw] font-[600] ">{data[props.Nbr].title}</div>
-   </div>
+<motion.div className="grid justify-start py-5 relative max-h-[238px] min-w-[238px] "
+whileInView={{y:props.y}}
+transition={{bounce:.5}} 
+>
+            
+            <motion.div className="tracking-[.1vw] absolute left-[0%] top-[-5%]" 
+                   animate={{
+                     y:hover?50:0
+                   }}
+                 > {pad(props.id,3)} </motion.div>
+                     <motion.img src={data[props.id].img}  className='w-[325px] h-[183px] z-20 ' 
+                     onHoverStart={()=>{sethover(true)}} 
+                     onHoverEnd={()=>{sethover(false)}}
+                     whileHover={{scale:1.1}}
+         />
+                 
+                <motion.div className="tracking-[.4vw] font-[600] absolute left-[0%] bottom-1 "
+                   animate={{
+                     y:hover?-50:0
+                   }}
+                  >{data[props.id].title} </motion.div>
+     
+</motion.div>
+
 )
 }
 
-export default GridItem
+export default Griditem
