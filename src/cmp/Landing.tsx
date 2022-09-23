@@ -10,7 +10,10 @@ const Landing=()=>{
     const [fix,setfix]= useState(false)
     const [screen,setscreen]= useState(false)
     const [screenfix,setscreenfix]= useState(false)
+  
 
+    
+   
     useEffect(()=>{
       console.log("screenfix:",screenfix)
       setTimeout(() => {
@@ -19,21 +22,24 @@ const Landing=()=>{
         setscreenfix(false)
       }, 500);
     },[screenfix])
+
     useEffect(()=>{
-      console.log('screeen:',screen)
+    
       setTimeout(() => {
 if(screen) setfix(true),
         setscreen(false)
       }, 700);
     },[screen])
     
+  
+
 return(
 <>
 { fix===false && <div  style={{backgroundImage:`url(${China})`}}
  className={`fixed bg-cover bg-top text-[#f7f7f7] ${screen && 'text-white'} right-0 bottom-0 min-w-[100vw] 
      min-h-[100vh]  font-["garamond_premier_pro",serif]`} >
       
-    <motion.div className=  {`${screen && 'bg-white'} absolute rounded-full box-border 
+    <motion.div id='x' className=  {`${screen && 'bg-white'} absolute rounded-full box-border 
     p-2   duration-500 top-[50%] left-[1%] z-30 lg:top-[2%]`}
     animate={{scale:screen?50:1}}
     transition={{delay:.1,}}
