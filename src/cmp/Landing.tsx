@@ -5,6 +5,7 @@ import {RiMenu4Fill} from 'react-icons/ri'
 import {FiX} from 'react-icons/fi'
 import { useState,useEffect } from 'react'
 import { motion } from "framer-motion"
+import {BsMouseFill} from "react-icons/bs"
 import Grid from "./Grid";
 const Landing=()=>{
     const [fix,setfix]= useState(false)
@@ -56,12 +57,15 @@ return(
      <nav className='h-[60px] flex justify-end items-center p-2 px-10 w-full z-20 ' >
     <h1  className=' text-3xl  font-semibold  ' > 关于</h1>
      </nav>
-     <div className="absolute top-[50%] right-[50%] translate-x-[50%] w-[70vw] z-20
+     <div className="absolute top-[45%] right-[50%] translate-x-[50%] w-[70vw] z-20
      translate-y-[-50%] grid  ">
         <h2 className='text-[2.5vw] tracking-[.3vw] justify-self-start' >Archaeologist</h2>
         <h1 className='text-[6vw] leading-[6.7vw] tracking-[2.5vw] uppercase w-full' >Tao Longwei</h1>
         <h2  className='text-[1vw] justify-self-end translate-x-[-190%] tracking-[.4vw] ' 
         >来自屋久岛 </h2>
+     </div>
+     <div className="absolute bottom-[15%] left-[50%] text-2xl ">
+     <BsMouseFill></BsMouseFill>
      </div>
 </div> }
 
@@ -99,3 +103,27 @@ min-h-[100vh]" >
   <source src={A} type="video/mp4"/>
 
 </video> */}
+
+
+
+
+
+
+{/* <div class="letter">
+			<div class="letter-back sketch" style="opacity: 1;">
+				<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+					<path path-onseen="1" transform="translate(65, 50)" stroke="white" stroke-width="50" fill="none" d="M 195 176 A 121 124 0 1 1 195 24" style="stroke-dasharray: 606.649, 606.649; stroke-dashoffset: 606.649px;" class="triggered"></path>
+				</svg>
+			</div>
+			<div class="letter-mid sketch" style="opacity: 1;">
+				<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+					<path path-onseen="1" transform="translate(65, 50)" stroke="black" stroke-width="50" fill="none" d="M 195 176 A 121 124 0 1 1 195 24" style="stroke-dasharray: 606.649, 606.649; stroke-dashoffset: 606.649px;" class="triggered"></path>
+				</svg>
+				<div class="video">
+					<video disablepictureinpicture="true" muted="true" loop="true" autoplay="true">
+						<source src="https://crustac.fr/wp-content/themes/crustac/img/video_waves3.webm" type="video/webm">
+						<source src="https://crustac.fr/wp-content/themes/crustac/img/video_waves3.mp4" type="video/mp4">
+					</video>
+				</div>
+			</div>
+		</div> */}
